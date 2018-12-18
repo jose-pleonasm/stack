@@ -13,7 +13,7 @@ const webpackLocalConfig = (function (filename) {
 	}
 })('./webpack.local.config.js');
 
-const htmlPlugin = new HtmlWebPackPlugin({
+const pluginHtml = new HtmlWebPackPlugin({
 	template: './src/index.html',
 	filename: './index.html',
 });
@@ -29,10 +29,18 @@ module.exports = deepmerge({
 					loader: 'babel-loader',
 				},
 			},
+			{
+				test: /\.scss$/,
+				use: [
+					'style-loader',
+					'css-loader',
+					'sass-loader',
+				],
+			},
 		],
 	},
 	plugins: [
-		htmlPlugin,
+		pluginHtml,
 	],
 	devServer: {
 		historyApiFallback: true,
