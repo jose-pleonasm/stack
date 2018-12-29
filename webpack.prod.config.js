@@ -10,6 +10,9 @@ const pluginVisualizer = new Visualizer({ filename: './statistics.html' });
 
 module.exports = {
 	entry: './src/js/main.js',
+	output: {
+		publicPath: '/',
+	},
 	module: {
 		rules: [
 			{

@@ -21,6 +21,9 @@ const pluginHtml = new HtmlWebPackPlugin({
 
 module.exports = deepmerge({
 	entry: './src/js/main.js',
+	output: {
+		publicPath: '/',
+	},
 	module: {
 		rules: [
 			{
