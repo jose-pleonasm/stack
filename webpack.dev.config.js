@@ -13,6 +13,7 @@ const webpackLocalConfig = (function (filename) {
 	}
 })('./webpack.local.config.js');
 
+
 const pluginHtml = new HtmlWebPackPlugin({
 	template: './src/index.html',
 	filename: './index.html',
