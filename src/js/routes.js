@@ -11,7 +11,13 @@ export const news = {
 	title: 'News',
 };
 
+export const article = {
+	path: '/article/:id',
+	exact: true,
+};
+
 export const routes = [
 	home,
 	news,
+	article,
 ];
