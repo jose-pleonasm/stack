@@ -1,29 +1,17 @@
 import * as React from 'react';
-import { Helmet } from 'react-helmet';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { LANG } from '../constants';
+import { BrowserRouter } from 'react-router-dom';
 import { DynamicIntlProvider } from './DynamicIntlProvider';
-import { home, news, article } from '../routes';
-import { Home } from './pages/Home';
-import { News } from './pages/News';
-import { Article } from './pages/Article';
-import { NotFound } from './pages/NotFound';
-import '../../css/index.scss';
+import { Root } from './Root';
 
 export const App = (props) => {
+	const { config } = props;
+	const { lang } = config;
+
 	return (
-		<React.Fragment>
-			<Helmet htmlAttributes={{ lang: LANG }}/>
-			<DynamicIntlProvider locale={LANG}>
-				<BrowserRouter>
-					<Switch>
-						<Route {...home} component={Home} />
-						<Route {...news} component={News} />
-						<Route {...article} component={Article} />
-						<Route component={NotFound} />
-					</Switch>
-				</BrowserRouter>
-			</DynamicIntlProvider>
-		</React.Fragment>
+		<DynamicIntlProvider locale={lang}>
+			<BrowserRouter>
+				<Root lang={lang} />
+			</BrowserRouter>
+		</DynamicIntlProvider>
 	);
 };
