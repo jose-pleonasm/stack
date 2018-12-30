@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 import { routes, article as routeArticle } from '../../routes';
 import { resolvePath } from '../../utils/router';
@@ -12,14 +13,14 @@ export const Menu = () => {
 			{straightRoutes.map(route => (
 				<li key={route.name}>
 					<NavLink to={route.path} activeClassName={activeClassName}>
-						<span>{route.name}</span>
+						<FormattedMessage id={`menu.${route.name}`} defaultMessage={route.name} />
 					</NavLink>
 				</li>
 			))}
 			{articles.map(article => (
 				<li key={article.id}>
 					<NavLink to={resolvePath(routeArticle, article)} activeClassName={activeClassName}>
-						<span>{article.title}</span>
+						<FormattedMessage id={`menu.${routeArticle.name}`} defaultMessage={article.title} />
 					</NavLink>
 				</li>
 			))}

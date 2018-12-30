@@ -26,5 +26,16 @@ npm run dev
 npm run build
 ```
 
+## Vývoj
+
+### i18n - message ID convention
+component/_general_.item[.modifier]
+
+#### Examples:
+`general.description`
+`homepage.title`
+`signInForm.usernameError.valueMissing`
+`signInForm.usernameError.tooShort`
+
 
 [node]: https://nodejs.org/en/ "Node.js"
