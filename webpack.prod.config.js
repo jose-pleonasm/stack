@@ -47,6 +47,6 @@ module.exports = {
 		// 		},
 		// 	},
 		// },
-		minimizer: [new UglifyJsPlugin()],
+		// minimizer: [new UglifyJsPlugin()], // TODO: Unexpected token operator «*», expected punc «(» [main.js:10421,57]
 	},
 };
