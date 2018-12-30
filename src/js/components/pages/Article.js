@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { GeneralLayout } from '../GeneralLayout';
+import { GeneralLayout } from '../layout/GeneralLayout';
 import { articles } from '../../articles';
 
 export const Article = (props) => {

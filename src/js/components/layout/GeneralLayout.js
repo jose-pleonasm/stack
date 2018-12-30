@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Header } from './layout/Header';
-import { Footer } from './layout/Footer';
-import { Menu } from './layout/Menu';
+import { Header } from '../general/Header';
+import { Footer } from '../general/Footer';
+import { Menu } from '../general/Menu';
 
 export const GeneralLayout = (props) => {
 	const { children } = props;
