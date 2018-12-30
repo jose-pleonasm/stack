@@ -7,7 +7,7 @@ const webpackLocalConfig = (function (filename) {
 		return require(filename);
 	}
 	catch (error) {
-		if (error.message.indexOf(`Cannot find module '${filename}'`) === -1) {
+		if (error.code !== 'MODULE_NOT_FOUND') {
 			throw error;
 		}
 		return {};
