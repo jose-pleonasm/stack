@@ -3,7 +3,6 @@ import { Header } from './layout/Header';
 import { Footer } from './layout/Footer';
 import { Menu } from './layout/Menu';
 
-
 export const GeneralLayout = (props) => {
 	const { children } = props;
 
