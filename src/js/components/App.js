@@ -1,19 +1,19 @@
 import * as React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
 import { DynamicIntlProvider } from './DynamicIntlProvider';
 import { Root } from './Root';
 
 export const App = (props) => {
-	const { config, store } = props;
+	const { config, store, history } = props;
 	const { lang } = config;
 
 	return (
 		<Provider store={store}>
 			<DynamicIntlProvider locale={lang}>
-				<BrowserRouter>
+				<ConnectedRouter history={history}>
 					<Root lang={lang} />
-				</BrowserRouter>
+				</ConnectedRouter>
 			</DynamicIntlProvider>
 		</Provider>
 	);

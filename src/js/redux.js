@@ -1,8 +1,9 @@
-import { applyMiddleware, compose, createStore as originalCreateStore } from 'redux';
+import { applyMiddleware, compose, combineReducers, createStore as originalCreateStore } from 'redux';
 import thunk from 'redux-thunk';
+import { routerMiddleware, connectRouter } from 'connected-react-router';
 
-export const createStore = (reducer, preloadedState) => {
-	const middlewares = [thunk];
+export const createStore = (reducers, preloadedState, history) => {
+	const middlewares = [routerMiddleware(history), thunk];
 	const middlewareEnhancer = applyMiddleware(...middlewares);
 	let composeEnhancers = compose;
 
@@ -12,7 +13,10 @@ export const createStore = (reducer, preloadedState) => {
 	}
 
 	return originalCreateStore(
-		reducer,
+		combineReducers({
+			router: connectRouter(history),
+			...reducers,
+		}),
 		preloadedState,
 		composeEnhancers(middlewareEnhancer),
 	);
