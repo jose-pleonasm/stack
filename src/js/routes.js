@@ -2,18 +2,19 @@
 export const home = {
 	path: '/',
 	exact: true,
-	title: 'Home',
+	name: 'Home',
 };
 
 export const news = {
 	path: '/news',
 	exact: true,
-	title: 'News',
+	name: 'News',
 };
 
 export const article = {
 	path: '/article/:id',
 	exact: true,
+	name: 'Article',
 };
 
 export const routes = [

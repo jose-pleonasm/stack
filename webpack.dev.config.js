@@ -1,3 +1,4 @@
+/*eslint-env node */
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const deepmerge = require('deepmerge');
 const isPlainObject = require('is-plain-object');
@@ -6,7 +7,7 @@ const webpackLocalConfig = (function (filename) {
 		return require(filename);
 	}
 	catch (error) {
-		if (error.message.indexOf("Cannot find module '" + filename + "'") === -1) {
+		if (error.message.indexOf(`Cannot find module '${filename}'`) === -1) {
 			throw error;
 		}
 		return {};

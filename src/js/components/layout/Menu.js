@@ -10,9 +10,9 @@ export const Menu = () => {
 	return (
 		<ul>
 			{straightRoutes.map(route => (
-				<li key={route.path}>
+				<li key={route.name}>
 					<NavLink to={route.path} activeClassName={activeClassName}>
-						<span>{route.title}</span>
+						<span>{route.name}</span>
 					</NavLink>
 				</li>
 			))}

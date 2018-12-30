@@ -1,3 +1,4 @@
+/*eslint-env node */
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
