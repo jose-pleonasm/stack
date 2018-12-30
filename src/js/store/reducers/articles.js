@@ -1,5 +1,5 @@
 
-export const articles = [
+export const initialState = [
 	{
 		id: 'c0b88c4f-8877-4890-9f85-09fab245956d',
 		title: 'Article A',
@@ -9,3 +9,10 @@ export const articles = [
 		title: 'Article B',
 	},
 ];
+
+export const articles = (state = initialState, action) => {
+	switch (action.type) {
+		default:
+			return state;
+	}
+};

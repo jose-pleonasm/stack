@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { GeneralLayout } from '../layout/GeneralLayout';
+import { GeneralLayoutContainer as GeneralLayout } from '../layout/GeneralLayoutContainer';
 
 export const NotFound = () => {
 	return (

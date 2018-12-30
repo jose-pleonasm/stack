@@ -3,11 +3,12 @@ import { FormattedMessage } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 import { routes, article as routeArticle } from '../../routes';
 import { resolvePath } from '../../utils/router';
-import { articles } from '../../articles';
 
 const straightRoutes = routes.filter(route => route !== routeArticle);
 
-export const Menu = () => {
+export const Menu = (props) => {
+	const { articles = [] } = props;
+
 	return (
 		<ul>
 			{straightRoutes.map(route => (

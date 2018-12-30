@@ -5,7 +5,7 @@ import { APP_NAME } from '../constants';
 import { home, news, article } from '../routes';
 import { Home } from './pages/Home';
 import { News } from './pages/News';
-import { Article } from './pages/Article';
+import { ArticleContainer as Article } from './pages/ArticleContainer';
 import { NotFound } from './pages/NotFound';
 import '../../css/index.scss';
 

@@ -4,7 +4,7 @@ import { Footer } from '../general/Footer';
 import { Menu } from '../general/Menu';
 
 export const GeneralLayout = (props) => {
-	const { children } = props;
+	const { children, articles } = props;
 
 	return (
 		<div>
@@ -12,7 +12,7 @@ export const GeneralLayout = (props) => {
 				<Header />
 			</header>
 			<nav role="navigation">
-				<Menu />
+				<Menu articles={articles} />
 			</nav>
 			<main role="main">
 				{children}
