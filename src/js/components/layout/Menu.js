@@ -4,7 +4,7 @@ import { routes, article as routeArticle } from '../../routes';
 import { resolvePath } from '../../utils/router';
 import { articles } from '../../articles';
 
-const straightRoutes = routes.filter(route => route !== routeArticle)
+const straightRoutes = routes.filter(route => route !== routeArticle);
 
 export const Menu = () => {
 	return (
