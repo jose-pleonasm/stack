@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux';
 import { articles, initialState as articlesInitialState } from './reducers/articles';
 
 export const reducers = {
@@ -7,3 +8,5 @@ export const reducers = {
 export const appInitialState = {
 	articles: articlesInitialState,
 };
+
+export const appReducer = combineReducers(reducers);

@@ -2,9 +2,10 @@ import { applyMiddleware, compose, combineReducers, createStore as originalCreat
 import thunk from 'redux-thunk';
 import { routerMiddleware, connectRouter } from 'connected-react-router';
 
-export const createStore = (reducers, preloadedState, history) => {
+export const createStore = (reducer, preloadedState, history) => {
 	const middlewares = [routerMiddleware(history), thunk];
 	const middlewareEnhancer = applyMiddleware(...middlewares);
+	const routerReducer = connectRouter(history);
 	let composeEnhancers = compose;
 
 	if (process.env.NODE_ENV === 'development'
@@ -13,10 +14,13 @@ export const createStore = (reducers, preloadedState, history) => {
 	}
 
 	return originalCreateStore(
-		combineReducers({
-			router: connectRouter(history),
-			...reducers,
-		}),
+		(state, action) => {
+			const { router: routerState, ...appState } = state;
+			return {
+				...reducer(appState, action),
+				router: routerReducer(routerState, action),
+			};
+		},
 		preloadedState,
 		composeEnhancers(middlewareEnhancer),
 	);
