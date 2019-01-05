@@ -1,4 +1,5 @@
 /*eslint-env node */
+const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const deepmerge = require('deepmerge');
 const isPlainObject = require('is-plain-object');
@@ -19,6 +20,7 @@ const pluginHtml = new HtmlWebPackPlugin({
 	template: './src/index.html',
 	filename: './index.html',
 });
+const pluginHmr = new webpack.HotModuleReplacementPlugin();
 
 module.exports = deepmerge({
 	entry: './src/js/main.js',
@@ -46,9 +48,11 @@ module.exports = deepmerge({
 	},
 	plugins: [
 		pluginHtml,
+		pluginHmr,
 	],
 	devServer: {
 		historyApiFallback: true,
 		host: 'localhost',
+		hot: true,
 	},
 }, webpackLocalConfig, { isMergeableObject: isPlainObject });

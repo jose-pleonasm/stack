@@ -11,9 +11,24 @@ const config = {
 const history = createBrowserHistory();
 const store = createStore(appReducer, { config }, history);
 
-render(
-	<App store={store} history={history}>
-		<Root />
-	</App>,
-	document.getElementById(APP_CONTAINER_ID),
-);
+const renderApp = () => {
+	render(
+		<App store={store} history={history}>
+			<Root />
+		</App>,
+		document.getElementById(APP_CONTAINER_ID),
+	);
+};
+
+renderApp();
+
+if (module.hot) {
+	module.hot.accept('./core/index', () => {
+		require('./core/index').App;
+		renderApp();
+	});
+	module.hot.accept('./components/RootContainer', () => {
+		require('./components/RootContainer').RootContainer;
+		renderApp();
+	});
+}
