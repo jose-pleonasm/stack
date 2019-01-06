@@ -1,6 +1,7 @@
 /*eslint-env node */
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 const deepmerge = require('deepmerge');
 const isPlainObject = require('is-plain-object');
 const webpackLocalConfig = (function (filename) {
@@ -21,6 +22,11 @@ const pluginHtml = new HtmlWebPackPlugin({
 	filename: './index.html',
 });
 const pluginHmr = new webpack.HotModuleReplacementPlugin();
+const pluginDotenv = new Dotenv({
+	path: './.env',
+	safe: true,
+});
+
 
 module.exports = deepmerge({
 	entry: './src/js/main.js',
@@ -49,6 +55,7 @@ module.exports = deepmerge({
 	plugins: [
 		pluginHtml,
 		pluginHmr,
+		pluginDotenv,
 	],
 	devServer: {
 		historyApiFallback: true,

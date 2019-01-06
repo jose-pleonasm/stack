@@ -7,6 +7,7 @@ import { RootContainer as Root } from './components/RootContainer';
 
 const config = {
 	lang: DEFAULT_LANG,
+	domain: process.env.REACT_APP_DOMAIN,
 };
 const history = createBrowserHistory();
 const store = createStore(appReducer, { config }, history);

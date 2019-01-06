@@ -20,6 +20,7 @@
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
     "deepmerge": "^3.0.0",
+    "dotenv-webpack": "^1.6.0",
     "eslint": "^5.12.0",
     "eslint-plugin-react": "^7.12.3",
     "fast-async": "^7.0.6",

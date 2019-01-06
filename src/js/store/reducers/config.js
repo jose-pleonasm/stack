@@ -1,6 +1,7 @@
 
 export const initialState = {
 	lang: '',
+	domain: '',
 };
 
 export const config = (state = initialState, action) => {

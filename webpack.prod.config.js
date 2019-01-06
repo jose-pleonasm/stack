@@ -1,5 +1,6 @@
 /*eslint-env node */
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
 
@@ -8,6 +9,10 @@ const pluginHtml = new HtmlWebPackPlugin({
 	filename: './index.html',
 });
 const pluginVisualizer = new Visualizer({ filename: './statistics.html' });
+const pluginDotenv = new Dotenv({
+	path: './.env',
+	safe: true,
+});
 
 module.exports = {
 	entry: './src/js/main.js',
@@ -36,6 +41,7 @@ module.exports = {
 	plugins: [
 		pluginHtml,
 		pluginVisualizer,
+		pluginDotenv,
 	],
 	optimization: {
 		// splitChunks: {
